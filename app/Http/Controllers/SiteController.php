@@ -28,6 +28,10 @@ class SiteController extends Controller
             'parcelles' => $parcelles
         ]);
     }
+
+    
+    public function showParcelle($site_id, $parcelle_id)
+    {
+        return " Site ID : " . $site_id . " | Parcelle ID : " . $parcelle_id;
+    }
 }
-
-
