@@ -21,17 +21,22 @@ class SiteController extends Controller
             return redirect('/');
         }
 
-        $parcelles = []; 
+        $parcelles = [
+            ['id' => 101, 'nom' => 'Parcelle Nord', 'disponibilite' => 'Libre'],
+            ['id' => 102, 'nom' => 'Parcelle Sud', 'disponibilite' => 'Occupée'],
+        ];
 
         return view('sites.show', [
             'id' => $id, 
             'parcelles' => $parcelles
         ]);
     }
-
     
     public function showParcelle($site_id, $parcelle_id)
     {
-        return " Site ID : " . $site_id . " | Parcelle ID : " . $parcelle_id;
+        return view('sites.parcelle', [
+            'site_id' => $site_id,
+            'parcelle_id' => $parcelle_id
+        ]);
     }
 }

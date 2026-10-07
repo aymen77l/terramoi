@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Liste des Sites - Terramoi</title>
-</head>
-<body>
+@extends('template.app')
+
+@section('title', 'Liste des Sites - Terramoi')
+
+@section('content')
     <h1>Nos sites</h1>
     
     <ul>
         @foreach($sites as $site)
             <li>
                 <strong>{{ $site['nom'] }}</strong> 
+                (Parcelles libres : {{ $site['parcelles_libres'] }})
+                <a href="{{ route('sites.show', ['id' => $loop->iteration]) }}">[Voir le site]</a>
             </li>
         @endforeach
     </ul>
-    
-    <br>
-    <a href="/">Retour à l'accueil</a>
-</body>
-</html>
+@endsection
