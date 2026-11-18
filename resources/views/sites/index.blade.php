@@ -24,7 +24,7 @@
 
 <div class="site-header">
     <h1 class="site-title">Nos sites</h1>
-    <span class="site-count">{{ count($sites) }} site(s) disponible(s)</span>
+	<span class="site-count">{{ count($sites ?? []) }} site(s) disponible(s)</span>
 </div>
 
 @if(empty($sites))
