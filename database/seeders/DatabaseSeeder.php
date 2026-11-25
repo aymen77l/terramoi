@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +22,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // Création du compte Administrateur pour la gestion des espaces personnels
+        User::firstOrCreate(
+            ['email' => 'admin@terramoi.fr'],
+            [
+                'name' => 'Administrateur',
+                'password' => Hash::make('admin1234'),
+                'role' => 'admin',
+            ]
+        );
     }
 }
