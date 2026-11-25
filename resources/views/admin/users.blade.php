@@ -6,6 +6,11 @@
 </head>
 <body>
     <h1>Espace Admin — Gestion des comptes</h1>
+    
+    <form action="{{ route('logout') }}" method="POST" style="margin-bottom: 20px;">
+		@csrf
+		<button type="submit">Se déconnecter</button>
+	</form>
 
     @if(session('success'))
         <p style="color: green;">{{ session('success') }}</p>
